@@ -49,6 +49,20 @@ public class Etudiant {
 
     }
 
+    public double calculerMoyenneGenerale(Formation formation){
+        Double moyenneGenerale = 0.0;
+        Double coefficient = 0.0;
+        for (String matiere : resultat.getResultat().keySet()) {
+            ArrayList<Double> notes = resultat.getResultat().get(matiere);
+            for (Double note : notes) {
+                moyenneGenerale += note*formation.getCoef(matiere);
+                coefficient += formation.getCoef(matiere);
+            }
+        }
+        return moyenneGenerale/coefficient;
+
+    }
+
 
 
 }
