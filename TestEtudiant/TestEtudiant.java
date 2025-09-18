@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import Exception.NoteException;
 import Exception.MatiereException;
 
+import java.util.HashMap;
+
 public class TestEtudiant {
 
     @Test
@@ -21,7 +23,7 @@ public class TestEtudiant {
         Identite i = new Identite("123", "laghezali", "nacime");
         Resultat r = new Resultat();
         Etudiant etu = new Etudiant(i, r);
-        assertEquals(0, etu.calculerMoyenneMatiere("Physique"));
+        assertEquals(0.0, etu.calculerMoyenneMatiere("Physique"));
     }
 
     @Test
@@ -29,10 +31,13 @@ public class TestEtudiant {
         Identite i = new Identite("123", "laghezali", "nacime");
         Resultat r = new Resultat();
         Etudiant etu = new Etudiant(i, r);
+        Formation f = new Formation("forma1", new HashMap<String, Double>());
+        f.getMatiere().put("Maths",2.0);
+        f.getMatiere().put("Francais",3.0);
 
         etu.ajouterNote("Maths", 10.0);
         etu.ajouterNote("Maths", 14.0);
-        etu.ajouterNote("Français", 16.0);
-        assertEquals(14.0, etu.calculerMoyenneGeneral());
+        etu.ajouterNote("Francais", 16.0);
+        assertEquals(14.0, etu.calculerMoyenneGenerale(f));
     }
 }
