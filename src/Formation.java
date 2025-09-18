@@ -29,7 +29,7 @@ public class Formation {
             return matirere.get(mat).toString();
         }
         return mat;
-    } 
+    }
 
 
 
