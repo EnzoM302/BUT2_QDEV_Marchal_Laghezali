@@ -24,6 +24,13 @@ public class Formation {
         return 0;
     }
 
+    public String getMatiere(String mat) {
+        if (matirere.containsKey(mat)) {
+            return matirere.get(mat).toString();
+        }
+        return mat;
+    } 
+
 
 
 
