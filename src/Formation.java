@@ -29,9 +29,4 @@ public class Formation {
         return matirere;
     }
 
-
-
-
-
-
 }
