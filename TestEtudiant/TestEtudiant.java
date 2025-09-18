@@ -1,21 +1,23 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import Exception.NoteException;
+import Exception.MatiereException;
 
 public class TestEtudiant {
 
     @Test
-    public void TestCalculerMoyenne(){
-        Identite i = new Identite("123", "laghezali", "nacime");
-        Resultat r = new Resultat();
-        Etudiant etu = new Etudiant(i, r);
-        etu.ajouterNote("Mathematique", 12);
-        etu.ajouterNote("Mathematique", 8);
-        assertEquals(10, etu.calculerMoyenneMatiere("Mathematique"));
+    public void TestCalculerMoyenne() throws NoteException, MatiereException {
+            Identite i = new Identite("123", "laghezali", "nacime");
+            Resultat r = new Resultat();
+            Etudiant etu = new Etudiant(i, r);
+            etu.ajouterNote("Mathematique", 12.0);
+            etu.ajouterNote("Mathematique", 8.0);
+            assertEquals(10, etu.calculerMoyenneMatiere("Mathematique"));
     }
 
     @Test
-    public void testCalculerMoyenneMatiereInconnue() {
+    public void testCalculerMoyenneMatiereInconnue() throws MatiereException {
         Identite i = new Identite("123", "laghezali", "nacime");
         Resultat r = new Resultat();
         Etudiant etu = new Etudiant(i, r);
@@ -23,7 +25,7 @@ public class TestEtudiant {
     }
 
     @Test
-    public void CalculerMoyenneGeneral(){
+    public void CalculerMoyenneGeneral() throws NoteException, MatiereException {
         Identite i = new Identite("123", "laghezali", "nacime");
         Resultat r = new Resultat();
         Etudiant etu = new Etudiant(i, r);
