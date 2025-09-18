@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import Exception.MatiereException;
-import Exception.NoteException
+import Exception.NoteException;
 
 public class Etudiant {
     private Identite identite;
