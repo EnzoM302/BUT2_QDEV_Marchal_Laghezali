@@ -7,8 +7,9 @@ public class Etudiant {
     private Formation formation;
     private Resultat resultat;
 
-    public Etudiant(Identite identite, Resultat resultat) {
+    public Etudiant(Identite identite, Resultat resultat,  Formation formation) {
         this.identite = identite;
+        this.formation = formation;
         this.resultat = resultat;
     }
     public Identite getIdentite() {
