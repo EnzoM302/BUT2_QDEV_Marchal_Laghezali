@@ -24,7 +24,7 @@ public class Formation {
         return 0;
     }
 
-   
+
     public HashMap<String, Double> getMatiere() {
         return matirere;
     }
