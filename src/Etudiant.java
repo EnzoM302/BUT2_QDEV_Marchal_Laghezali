@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import Exception.MatiereException;
-import Exception.NoteException
+import Exception.NoteException;
 
 public class Etudiant {
     private Identite identite;
@@ -46,6 +46,20 @@ public class Etudiant {
             throw new MatiereException("La matière n'est pas dans la formation de l'etudiant");
         }
         return moyenneMatiere/resultat.getResultat().get(matiere).size();
+
+    }
+
+    public double calculerMoyenneGenerale(Formation formation){
+        Double moyenneGenerale = 0.0;
+        Double coefficient = 0.0;
+        for (String matiere : resultat.getResultat().keySet()) {
+            ArrayList<Double> notes = resultat.getResultat().get(matiere);
+            for (Double note : notes) {
+                moyenneGenerale += note*formation.getCoef(matiere);
+                coefficient += formation.getCoef(matiere);
+            }
+        }
+        return moyenneGenerale/coefficient;
 
     }
 
