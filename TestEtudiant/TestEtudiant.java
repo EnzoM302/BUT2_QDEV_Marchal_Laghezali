@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import Exception.NoteException;
 import Exception.MatiereException;
 
@@ -29,7 +31,7 @@ public class TestEtudiant {
         f.getMatiere().put("Maths",2.0);
         f.getMatiere().put("Francais",3.0);
         Etudiant etu = new Etudiant(i, r, f);
-        assertEquals(0.0, etu.calculerMoyenneMatiere("Physique"));
+        assertThrows(MatiereException.class, () -> etu.calculerMoyenneMatiere("Physique"));
     }
 
     @Test
@@ -44,6 +46,6 @@ public class TestEtudiant {
         etu.ajouterNote("Maths", 10.0);
         etu.ajouterNote("Maths", 14.0);
         etu.ajouterNote("Francais", 16.0);
-        assertEquals(14.0, etu.calculerMoyenneGenerale(f));
+        assertEquals(14.4, etu.calculerMoyenneGenerale(f));
     }
 }
