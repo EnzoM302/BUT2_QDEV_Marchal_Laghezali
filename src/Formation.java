@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import Exception.MatiereException;
 
 public class Formation {
     private String id;
@@ -9,7 +10,10 @@ public class Formation {
         this.matirere = new HashMap<>(matirere);
     }
 
-    public void ajouterMatiere(String matiere, double coefficient) {
+    public void ajouterMatiere(String matiere, double coefficient) throws MatiereException {
+        if (this.matirere.containsKey(matiere)) {
+            throw new MatiereException("La matière '" + matiere + "' existe déjà.");
+        }
         this.matirere.put(matiere, coefficient);
     }
 
