@@ -14,7 +14,11 @@ public class Formation {
         if (this.matirere.containsKey(matiere)) {
             throw new MatiereException("La matière '" + matiere + "' existe déjà.");
         }
-        this.matirere.put(matiere, coefficient);
+        if (coefficient<0){
+            this.matirere.put(matiere, coefficient);
+        }else{
+            throw new MatiereException("La matière '" + matiere + "' a un coefficient négatif");
+        }
     }
 
     public void supprimerMatiere(String matiere) {
