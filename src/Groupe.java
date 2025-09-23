@@ -20,12 +20,17 @@ public class Groupe {
         if (!etudiants.contains(etudiant) && etudiant.getFormation().getId().equals(idFormation)) {
             etudiants.add(etudiant);
         }else{
-            throw new IllegalArgumentException("L'étudiant existe déjà");
+            throw new EtudiantException("L'étudiant existe déjà");
         }
     }
 
-    public void removeEtudiant(Etudiant etudiant) {
-        etudiants.remove(etudiant);
+    public void removeEtudiant(Etudiant etudiant)throws EtudiantException {
+        if (etudiants.contains(etudiant)) {
+            etudiants.remove(etudiant);
+        }else{
+            throw new EtudiantException("l'etudiant n'existe pas");
+        }
+
     }
 
     @Override
