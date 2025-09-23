@@ -32,7 +32,6 @@ public class TestFormation {
 
     @Test
     void testAjouterMatiereExistante() {
-        // "Maths" existe déjà dans la formation
         assertThrows(MatiereException.class, () -> {
             formation.ajouterMatiere("Maths", 2.5);
         });

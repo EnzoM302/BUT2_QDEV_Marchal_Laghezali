@@ -28,6 +28,10 @@ public class Formation {
         return 0;
     }
 
+    public String getId() {
+        return id;
+    }
+
 
     public HashMap<String, Double> getMatiere() {
         return matirere;

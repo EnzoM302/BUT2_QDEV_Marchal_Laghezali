@@ -20,6 +20,10 @@ public class Etudiant {
         return resultat;
     }
 
+    public Formation getFormation() {
+        return formation;
+    }
+
     public void ajouterNote(String matiere, Double note) throws MatiereException, NoteException {
         if ((note >= 0 || note <= 20)) {
             if (formation.getMatiere().containsKey(matiere)){
@@ -65,6 +69,8 @@ public class Etudiant {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Nom : " + this.identite.getNom() +" Prenom : " + this.identite.getPrenom() + " INP : " + this.identite.getNip();
+    }
 }
