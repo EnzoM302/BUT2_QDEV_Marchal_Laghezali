@@ -7,7 +7,7 @@ public class Groupe {
     private String idFormation;
 
     public Groupe(String idFormation) {
-        etudiants = new ArrayList<>();
+        etudiants = new ArrayList<Etudiant>();
         this.idFormation = idFormation;
     }
 
