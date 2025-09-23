@@ -32,7 +32,7 @@ public class Groupe {
     public String toString() {
         String s = "";
         for (Etudiant etudiant : etudiants) {
-            s += etudiant.toString() + "\n";
+            s += etudiant.toString() + "/";
         }
         return s;
     }
