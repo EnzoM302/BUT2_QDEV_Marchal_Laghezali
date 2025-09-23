@@ -2,7 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-
+import Exception.NoteException;
+import Exception.MatiereException;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -19,10 +20,25 @@ public class TestFormation {
 
     @Test
     void testAjouterMatiere() {
-        formation.ajouterMatiere("Anglais", 1.5);
-        assertTrue(formation.getMatiere().containsKey("Anglais"));
-        assertEquals(1.5, formation.getCoef("Anglais"), 0.001);
+        try{
+            formation.ajouterMatiere("Anglais", 1.5);
+            assertTrue(formation.getMatiere().containsKey("Anglais"));
+            assertEquals(1.5, formation.getCoef("Anglais"), 0.001);
+        }catch(MatiereException e){
+            e.printStackTrace();
+        }
+
     }
+
+    @Test
+    void testAjouterMatiereExistante() {
+        // "Maths" existe déjà dans la formation
+        assertThrows(MatiereException.class, () -> {
+            formation.ajouterMatiere("Maths", 2.5);
+        });
+    }
+
+
 
     @Test
     void testSupprimerMatiere() {
