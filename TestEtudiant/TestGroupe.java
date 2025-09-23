@@ -24,7 +24,7 @@ public class TestGroupe {
         f.getMatiere().put("Francais",3.0);
         Etudiant e1 = new Etudiant(i, r, f);
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         assertEquals("Nom : laghezali Prenom : nacime INP : 123/", g.toString());
     }
@@ -44,7 +44,7 @@ public class TestGroupe {
         Etudiant e2 = new Etudiant(i, r, f);
 
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         g.addEtudiant(e2);
         assertThrows(EtudiantException.class, () -> g.addEtudiant(e1));
@@ -64,7 +64,7 @@ public class TestGroupe {
         Etudiant e1 = new Etudiant(i, r, f);
 
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         g.removeEtudiant(e1);
         assertEquals("", g.toString());
@@ -86,7 +86,7 @@ public class TestGroupe {
         Etudiant e2 = new Etudiant(i2, r, f);
 
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         assertThrows(EtudiantException.class, () -> g.removeEtudiant(e2));
     }

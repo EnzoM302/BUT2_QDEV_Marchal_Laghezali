@@ -4,11 +4,11 @@ import Exception.*;
 
 public class Groupe {
     private ArrayList<Etudiant>  etudiants;
-    private String idFormation;
+    private Formation formation;
 
-    public Groupe(String idFormation) {
+    public Groupe(Formation idFormation) {
         etudiants = new ArrayList<Etudiant>();
-        this.idFormation = idFormation;
+        this.formation = idFormation;
     }
 
     public ArrayList<Etudiant> getEtudiants() {
@@ -17,7 +17,7 @@ public class Groupe {
 
 
     public void addEtudiant(Etudiant etudiant) throws EtudiantException {
-        if (!etudiants.contains(etudiant) && etudiant.getFormation().getId().equals(idFormation)) {
+        if (!etudiants.contains(etudiant) && etudiant.getFormation().getId().equals(formation.getId())) {
             etudiants.add(etudiant);
         }else{
             throw new EtudiantException("L'étudiant existe déjà");
@@ -31,6 +31,22 @@ public class Groupe {
             throw new EtudiantException("l'etudiant n'existe pas");
         }
 
+    }
+
+    public double moyenneGroupeMatiere(String matiere) throws MatiereException {
+        double moyenne = 0;
+        for (Etudiant etudiant : etudiants) {
+            moyenne += etudiant.calculerMoyenneMatiere(matiere);
+        }
+        return moyenne/etudiants.size();
+    }
+
+    public double moyenneGroupeGeneral() throws MatiereException {
+        double moyenne = 0;
+        for (Etudiant etudiant : etudiants) {
+            moyenne = etudiant.calculerMoyenneGenerale(formation);
+        }
+        return moyenne/etudiants.size();
     }
 
     @Override
