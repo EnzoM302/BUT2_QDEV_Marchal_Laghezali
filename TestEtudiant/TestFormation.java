@@ -37,6 +37,13 @@ public class TestFormation {
         });
     }
 
+    @Test
+    void testAjouterMatiereCoeffNegatif() {
+        assertThrows(MatiereException.class, () -> {
+            formation.ajouterMatiere("Maths", -2.5);
+        });
+    }
+
 
 
     @Test
