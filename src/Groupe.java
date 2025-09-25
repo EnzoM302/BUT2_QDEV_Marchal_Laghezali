@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import Exception.*;
 
@@ -41,4 +43,16 @@ public class Groupe {
         }
         return s;
     }
+
+    public void triAlpha(){
+        Collections.sort(etudiants, new Comparateur(true));
+    }
+
+    public void triAntiAlpha(){
+        Collections.sort(etudiants, new Comparateur(false));
+    }
+
+
+
+
 }
