@@ -82,9 +82,9 @@ public class Etudiant implements Comparable<Etudiant>{
     public int compareTo(Etudiant o) {
         try {
             if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
-                return -1;
-            }else if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
                 return 1;
+            }else if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
+                return -1;
             }else  {
                 return 0;
             }
