@@ -44,7 +44,7 @@ public class Groupe {
     public double moyenneGroupeGeneral() throws MatiereException {
         double moyenne = 0;
         for (Etudiant etudiant : etudiants) {
-            moyenne = etudiant.calculerMoyenneGenerale(formation);
+            moyenne += etudiant.calculerMoyenneGenerale(formation);
         }
         return moyenne/etudiants.size();
     }
