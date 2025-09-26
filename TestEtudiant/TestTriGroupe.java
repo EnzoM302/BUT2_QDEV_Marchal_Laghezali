@@ -30,7 +30,7 @@ public class TestTriGroupe {
         Etudiant e3 = new Etudiant(i3, r, f);
 
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         g.addEtudiant(e2);
         g.addEtudiant(e3);
@@ -57,7 +57,7 @@ public class TestTriGroupe {
         Etudiant e3 = new Etudiant(i3, r, f);
 
         ArrayList<Etudiant> l = new ArrayList<Etudiant>();
-        Groupe g = new Groupe (f.getId());
+        Groupe g = new Groupe (f);
         g.addEtudiant(e1);
         g.addEtudiant(e2);
         g.addEtudiant(e3);
