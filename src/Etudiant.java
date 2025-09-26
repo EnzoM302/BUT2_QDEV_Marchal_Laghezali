@@ -83,7 +83,7 @@ public class Etudiant implements Comparable<Etudiant>{
         try {
             if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
                 return -1;
-            }else if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
+            }else if (o.calculerMoyenneGenerale(formation) < this.calculerMoyenneGenerale(formation)){
                 return 1;
             }else  {
                 return 0;
