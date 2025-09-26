@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class TestGroupe {
 
 
-    //Test d'ajout d'un etudiant dans un groupe
+
     @Test
     public void testajoutEtudiant() throws EtudiantException {
         Identite i = new Identite("laghezali", "nacime", "123");
