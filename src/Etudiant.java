@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Objects;
+
 import Exception.MatiereException;
 import Exception.NoteException;
 
-public class Etudiant {
+public class Etudiant implements Comparable<Etudiant>{
     private Identite identite;
     private Formation formation;
     private Resultat resultat;
@@ -67,6 +69,28 @@ public class Etudiant {
         }
         return moyenneGenerale/coefficient;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Etudiant etudiant = (Etudiant) o;
+        return Objects.equals(identite, etudiant.identite) && Objects.equals(formation, etudiant.formation) && Objects.equals(resultat, etudiant.resultat);
+    }
+
+    @Override
+    public int compareTo(Etudiant o) {
+        try {
+            if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
+                return -1;
+            }else if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)){
+                return 1;
+            }else  {
+                return 0;
+            }
+        } catch (MatiereException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

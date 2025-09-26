@@ -68,6 +68,10 @@ public class Groupe {
         Collections.sort(etudiants, new Comparateur(false));
     }
 
+    public void triParMerite(){
+        Collections.sort(etudiants);
+    }
+
 
 
 
