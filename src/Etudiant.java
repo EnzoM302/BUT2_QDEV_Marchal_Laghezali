@@ -44,7 +44,7 @@ public class Etudiant implements Comparable<Etudiant>{
     public Double calculerMoyenneMatiere(String matiere) throws MatiereException {
         Double moyenneMatiere = 0.0;
 
-        if (resultat.getResultat().containsKey(matiere)){
+        if (resultat.getResultat().containsKey(matiere) && !resultat.getResultat().get(matiere).isEmpty()) {
             ArrayList<Double> notes = resultat.getResultat().get(matiere);
             for (Double note : notes) {
                 moyenneMatiere += note;
@@ -59,7 +59,7 @@ public class Etudiant implements Comparable<Etudiant>{
     public double calculerMoyenneGenerale(Formation formation) throws MatiereException {
         Double moyenneGenerale = 0.0;
         Double coefficient = 0.0;
-        for (String matiere : resultat.getResultat().keySet()) {
+        for (String matiere : formation.getMatiere().keySet()) {
                 if (formation.getMatiere().containsKey(matiere)){
 
                     moyenneGenerale += calculerMoyenneMatiere(matiere)*formation.getCoef(matiere);
