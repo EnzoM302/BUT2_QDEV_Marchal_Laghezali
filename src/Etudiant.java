@@ -145,15 +145,18 @@ public class Etudiant implements Comparable<Etudiant> {
      * @param o l'étudiant à comparer
      * @return -1 si {@code o} a une moyenne supérieure, 1 si {@code o} a une moyenne inférieure, 0 si égale
      */
-    @Override
-    public int compareTo(Etudiant o) {
+    @Override public int compareTo(Etudiant o) {
         try {
-            double thisMoyenne = this.calculerMoyenneGenerale(formation);
-            double autreMoyenne = o.calculerMoyenneGenerale(formation);
-            return Double.compare(thisMoyenne, autreMoyenne);
+            if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)) {
+                return -1;
+            } else if (o.calculerMoyenneGenerale(formation) < this.calculerMoyenneGenerale(formation)) {
+                return 1;
+            }
         } catch (MatiereException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
+
+        return 0;
     }
 
     /**
