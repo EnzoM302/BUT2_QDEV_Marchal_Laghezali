@@ -112,4 +112,12 @@ public class TestGroupe2 {
     public void testMoyenneGroupeMatiere() throws MatiereException {
         assertEquals(10.66, g.moyenneGroupeMatiere("Web"), 2, "On devrait obtenir 10.66 de moyenne pour le Web");
     }
+
+    @Test
+    public void testTriParMerite(){
+        g.triParMerite();
+        assertEquals("Nom : R Prenom : Arthur INP : 123/"
+                + "Nom : D Prenom : David INP : 125/"
+                + "Nom : S Prenom : Astrid INP : 124/", g.toString());
+    }
 }

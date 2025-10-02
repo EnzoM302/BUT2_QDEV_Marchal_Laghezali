@@ -102,4 +102,6 @@ public class TestTriGroupe {
                 "Le tri anti-alphabétique n'a pas produit l'ordre attendu"
         );
     }
+
+
 }
