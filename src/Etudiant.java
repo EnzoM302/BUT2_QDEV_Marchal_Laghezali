@@ -148,9 +148,9 @@ public class Etudiant implements Comparable<Etudiant> {
     @Override public int compareTo(Etudiant o) {
         try {
             if (o.calculerMoyenneGenerale(formation) > this.calculerMoyenneGenerale(formation)) {
-                return -1;
-            } else if (o.calculerMoyenneGenerale(formation) < this.calculerMoyenneGenerale(formation)) {
                 return 1;
+            } else if (o.calculerMoyenneGenerale(formation) < this.calculerMoyenneGenerale(formation)) {
+                return -1;
             }
         } catch (MatiereException e) {
             System.out.println(e.getMessage());
